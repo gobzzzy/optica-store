@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optica Eye - Sănătatea ochilor tăi</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header sticky-header">
+        <div class="container">
+            <h1>Optica Eye</h1>
+            <div class="hamburger-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#despre">Despre noi</a></li>
+                    <li><a href="#servicii">Servicii</a></li>
+                    <li><a href="#programare">Programează-te</a></li>
+                    <li><a href="#locatii">Locații</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Carusel -->
+    <section id="carusel" class="section">
+        <div class="carousel-wrapper">
+            <div class="carousel">
+                <div class="carousel-item">
+                    <img src="images/banner1.png" alt="Lichidări de stoc - Până la 70%">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/banner2.png" alt="Noua colecție de rame">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/banner3.png" alt="Consultații oftalmologice gratuite">
+                </div>
+            </div>
+            <button class="carousel-btn prev">&#8592;</button>
+            <button class="carousel-btn next">&#8594;</button>
+        </div>
+    </section>
+
+    <!-- Despre Noi -->
+    <section id="despre" class="about-section">
+        <div class="container">
+            <h2>Despre Optica Eye</h2>
+            <p style="line-height: 1.5;">La Optica Eye, ne dedicăm sănătății ochilor tăi. Oferim servicii complete de optică medicală, inclusiv consultații oftalmologice, prescriere de ochelari și lentile de contact, precum și o gamă variată de rame moderne și lentile de cea mai bună calitate. Echipa noastră de specialiști este pregătită să îți ofere soluții personalizate, utilizând cele mai recente tehnologii și echipamente. Ne angajăm să asigurăm o experiență plăcută și să răspundem tuturor întrebărilor tale legate de sănătatea oculară. Vino să descoperi un serviciu de calitate superioară, într-un mediu prietenos și profesionist. Contactează-ne pentru o programare!</p>
+        </div>
+    </section>
+
+    <!-- Servicii -->
+    <section id="servicii" class="services-section">
+        <div class="container">
+            <h2>Serviciile Noastre</h2>
+            <p>Oferim o gamă largă de tratamente pentru tine și familia ta.</p>
+            <div class="services-grid">
+                <div class="service-item">
+                    <img src="icons/diagnostic.png" alt="Diagnostic complet">
+                    <h4>Consultații oftalmologice</h4>
+                </div>
+                <div class="service-item">
+                    <img src="icons/lentile.png" alt="Lentile progresive">
+                    <h4>Determinarea dioptriilor</h4>
+                </div>
+                <div class="service-item">
+                    <img src="icons/rame.png" alt="Reparații rame">
+                    <h4>Montaj rame și lentile</h4>
+                </div>
+                <div class="service-item">
+                    <img src="icons/accesorii.png" alt="Ochelari de soare">
+                    <h4>Accesorii ochelari</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formular Programare -->
+    <section id="programare" class="appointment-section">
+    <div class="container">
+        <div class="appointment-content">
+            <!-- Textul din stânga -->
+            <div class="appointment-text">
+                <h2>Programează-te la o consultație gratuită</h2>
+                <p>Suntem aici să te ajutăm să ai o vedere clară și sănătoasă. Programează-te acum pentru a primi cele mai bune soluții personalizate pentru tine!</p>
+                <p><i class="fas fa-phone"></i> 0730 393 712</p>
+            </div>
+            <!-- Formularul din dreapta -->
+            <form action="#" method="POST" class="appointment-form">
+                <div class="form-group">
+                    <label for="fullname">Nume complet:</label>
+                    <input type="text" id="fullname" name="fullname" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefon:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Data dorită:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Ora dorită:</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Alege locația:</label>
+                    <select id="location" name="location" required>
+                        <option value="Militari">București - Bld. Uverturii, nr. 147</option>
+                        <option value="Dristor">București - Str. Dristorului, nr. 114</option>
+                        <option value="Reșița">București - Bld. Camil Ressu, nr. 23e</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Programează-te</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Locații -->
+    <section id="locatii" class="locations-section">
+        <div class="container">
+            <h2>Locații</h2>
+            <div class="locations-grid">
+                <div class="location-item">
+                    <h4>Militari</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Bld. Uverturii, nr. 147</p>
+                    <p><i class="fas fa-phone"></i> 0730 393 712</p>
+                    <p><i class="fas fa-clock"></i> Luni - Vineri: 10-18</p>
+                </div>
+                <div class="location-item">
+                    <h4>Dristor</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Str. Dristorului, nr. 114</p>
+                    <p><i class="fas fa-phone"></i> 0775 156 994</p>
+                    <p><i class="fas fa-clock"></i> Luni - Vineri: 10-19 | Sâmbătă: 10-14</p>
+                </div>
+                <div class="location-item">
+                    <h4>Piața Reșița</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Bld. Camil Ressu, nr. 23e</p>
+                    <p><i class="fas fa-phone"></i> 0738 820 262</p>
+                    <p><i class="fas fa-clock"></i> Luni - Vineri: 10-18</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Optica Eye</h4>
+                    <p>Aproape de tine, pentru o vedere mai bună!</p>                    
+                </div>
+                <div>
+                    <h4>Ce oferim</h4>
+                    <ul>
+                        <li>Consultații oftalmologice</li>
+                        <li>Determinarea dioptriilor</li>
+                        <li>Montaj rame și lentile</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <p><strong>Telefon:</strong> 0730 393 712</p>
+                    <p><strong>Email:</strong> opticaeye13@gmail.com</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/opticaeyemilitari/" target="_blank"><i style="color:#fff; font-size: 24px;" class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/opticaeye.ro/" target="_blank"><i style="color:#fff; font-size: 24px;" class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="sub-footer">
+                <p>© 2025 Optica Eye. Toate drepturile rezervate.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

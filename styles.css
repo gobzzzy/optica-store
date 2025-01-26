@@ -1,0 +1,404 @@
+/* General Styles */
+body {
+    font-family: 'Gothic A1', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #1e676e;
+}
+
+.main-header {
+    background-color: rgba(30, 103, 110, 0.8); /* Fundal semi-transparent */
+    color: #fff;
+    padding: 20px 0;
+    margin-bottom: 15px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.main-header.sticky {
+    background-color: #1e676e;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Efect vizual */
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Carusel */
+.carousel-wrapper {
+    position: relative;
+    max-width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    flex-shrink: 1;
+}
+
+.carousel-item img {
+    width: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    max-height: 500px;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-btn.prev {
+    left: 15px; /* Poziționează butonul mai vizibil */
+    z-index: 20; /* Prioritate peste imagini */
+}
+
+.carousel-btn.next {
+    right: 15px; /* Poziționează butonul corect */
+    z-index: 20; /* Prioritate peste imagini */
+}
+
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Secțiunea despre noi */
+.about-section {
+    padding: 40px 20px;
+}
+
+.about-section h2 {
+    color: #1e676e;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Secțiunea de servicii */
+.services-section {
+    background-color: #e6f7f8;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.service-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.service-item img {
+    max-width: 60px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover img {
+    transform: scale(1.1);
+}
+
+.service-item h4 {
+    color: #1e676e;
+}
+
+/* Secțiunea de programare */
+.appointment-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f9;
+    padding: 40px 20px;
+}
+
+.appointment-content {
+    display: flex;
+    gap: 40px; /* Distanța dintre text și formular */
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.appointment-text {
+    flex: 1; /* Textul ocupă jumătate din secțiune */
+}
+
+.appointment-text h2 {
+    font-size: 28px;
+    color: #1e676e;
+    margin-bottom: 10px;
+}
+
+.appointment-text p {
+    font-size: 16px;
+    color: #1e676e;
+    line-height: 1.6;
+}
+
+.appointment-text i {
+    color: #1e676e;
+    margin-right: 10px;
+}
+
+.appointment-form {
+    flex: 1; /* Formularul ocupă jumătate din secțiune */
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #1e676e;
+}
+
+.form-group input,
+.form-group select,
+.btn-submit {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.btn-submit {
+    background-color: #1e676e;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #0055a5;
+}
+
+/* Secțiunea locații */
+.locations-section {
+    background-color: #e6f7f8;
+    padding: 40px 20px;
+}
+
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.location-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+.main-footer {
+    background-color: #1e676e;
+    color: #fff;
+    padding: 40px 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.sub-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #fff;
+}
+
+
+@media (max-width: 768px) {
+    .carousel-item img {
+        max-height: 300px; /* Imagine redimensionată pentru mobil */
+    }
+
+    .carousel-btn {
+        width: 40px; /* Butoane mai mici pe mobil */
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .carousel-btn.prev {
+        left: 10px; /* Ajustează pentru spațiu redus */
+    }
+
+    .carousel-btn.next {
+        right: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Wrapper carusel */
+    .carousel-wrapper {
+        max-width: 95%; /* Mărim marginile pe mobil */
+    }
+
+    /* Imaginile din carusel */
+    .carousel-item img {
+        max-height: 300px; /* Reducem înălțimea pe mobil */
+    }
+
+    /* Butoanele de navigare */
+    .carousel-btn {
+        display: none;
+    }
+
+    
+}
+
+@media (max-width: 480px) {
+    /* Imagini pentru ecrane foarte mici */
+    .carousel-item img {
+        max-height: 250px;
+    }
+    
+}
+
+/* Responsivitate pentru mobil */
+@media (max-width: 768px) {
+    .appointment-content {
+        flex-direction: column; /* Elemente verticale */
+        gap: 20px; /* Distanța dintre text și formular */
+    }
+
+    .appointment-text {
+        text-align: center;
+    }
+
+    .appointment-form {
+        max-width: 100%; /* Formularul ocupă întreaga lățime */
+    }
+}
+
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none; /* Ascuns pe ecrane mari */
+    position: absolute;
+    top: 45px;
+    right: 20px;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1001; /* Mai sus decât sticky header */
+}
+
+.hamburger-menu .bar {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu.open .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-menu.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block; /* Apare pe ecrane mici */
+    }
+
+    nav ul {
+        display: none; /* Ascundem meniul pe mobil */
+        flex-direction: column;
+        background-color: #1e676ecc; /* Fundal semi-transparent */
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    nav ul.active {
+        display: flex; /* Afișăm meniul când este activ */
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+    }
+}
