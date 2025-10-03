@@ -1,104 +1,92 @@
-// Caruselul de imagini
+// ===== Carousel =====
 const carousel = document.querySelector('.carousel');
 const items = document.querySelectorAll('.carousel-item');
 const nextButton = document.querySelector('.carousel-btn.next');
 const prevButton = document.querySelector('.carousel-btn.prev');
 
 let currentIndex = 0;
-const totalItems = items.length;
+let autoTimer = null;
 
 function showSlide(index) {
-    if (carousel) {
-        carousel.style.transform = `translateX(-${index * 100}%)`;
-    }
+  if (!carousel) return;
+  carousel.style.transform = `translateX(-${index * 100}%)`;
 }
 
 function nextSlide() {
-    if (!totalItems) return;
-    currentIndex = (currentIndex + 1) % totalItems;
-    showSlide(currentIndex);
+  currentIndex = (currentIndex + 1) % items.length;
+  showSlide(currentIndex);
 }
 
 function prevSlide() {
-    if (!totalItems) return;
-    currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-    showSlide(currentIndex);
+  currentIndex = (currentIndex - 1 + items.length) % items.length;
+  showSlide(currentIndex);
 }
 
-// Adăugăm evenimente de click doar dacă butoanele există
-if (nextButton) {
-    nextButton.addEventListener('click', nextSlide);
+// Bind controls if buttons exist
+if (nextButton) nextButton.addEventListener('click', nextSlide);
+if (prevButton) prevButton.addEventListener('click', prevSlide);
+
+// Auto slide (pause on hover / focus)
+function startAuto(){ if (!autoTimer) autoTimer = setInterval(nextSlide, 5000); }
+function stopAuto(){ clearInterval(autoTimer); autoTimer = null; }
+if (carousel) {
+  startAuto();
+  carousel.addEventListener('mouseenter', stopAuto);
+  carousel.addEventListener('mouseleave', startAuto);
+  carousel.addEventListener('focusin', stopAuto);
+  carousel.addEventListener('focusout', startAuto);
 }
 
-if (prevButton) {
-    prevButton.addEventListener('click', prevSlide);
+// Touch swipe for mobile
+let startX = 0;
+if (carousel) {
+  carousel.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, {passive:true});
+  carousel.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const dx = endX - startX;
+    if (Math.abs(dx) > 40) dx < 0 ? nextSlide() : prevSlide();
+  });
 }
 
-// Auto-slide la fiecare 5 secunde
-if (carousel && totalItems > 1) {
-    setInterval(nextSlide, 5000);
-}
-
-// Efect sticky header la scroll
+// ===== Sticky header on scroll =====
 const header = document.querySelector('.main-header');
-
-if (header) {
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-}
-
-// Gestionarea meniului hamburger
-const hamburger = document.querySelector('.hamburger-menu');
-const navMenu = document.querySelector('nav ul');
-const navLinks = document.querySelectorAll('nav ul li a');
-
-// Funcția pentru a deschide/închide meniul
-function toggleMenu() {
-    if (!navMenu || !hamburger) return;
-    const isOpen = navMenu.classList.toggle('active');
-    hamburger.classList.toggle('open', isOpen);
-    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-}
-
-// Funcția pentru a închide meniul
-function closeMenu() {
-    if (!navMenu || !hamburger) return;
-    navMenu.classList.remove('active');
-    hamburger.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', 'false');
-}
-
-// Eveniment pentru butonul hamburger
-if (hamburger && navMenu) {
-    hamburger.addEventListener('click', toggleMenu);
-}
-
-// Închidere meniu când se face click pe un link
-navLinks.forEach(link => {
-    link.addEventListener('click', closeMenu);
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) header.classList.add('scrolled');
+  else header.classList.remove('scrolled');
 });
 
-// Efecte subtile fade-in pentru secțiuni
-const fadeInElements = document.querySelectorAll('.fade-in');
+// ===== Hamburger menu =====
+const hamburger = document.querySelector('.hamburger-menu');
+const navMenu = document.querySelector('.main-nav ul');
+const navLinks = document.querySelectorAll('.main-nav ul li a');
 
-if ('IntersectionObserver' in window && fadeInElements.length) {
-    const observer = new IntersectionObserver((entries, observerInstance) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observerInstance.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
-
-    fadeInElements.forEach(el => observer.observe(el));
-} else {
-    fadeInElements.forEach(el => el.classList.add('visible'));
+function toggleMenu(){
+  navMenu.classList.toggle('active');
+  hamburger.classList.toggle('open');
+  const expanded = hamburger.classList.contains('open');
+  hamburger.setAttribute('aria-expanded', expanded ? 'true' : 'false');
 }
+function closeMenu(){
+  navMenu.classList.remove('active');
+  hamburger.classList.remove('open');
+  hamburger.setAttribute('aria-expanded','false');
+}
+
+if (hamburger && navMenu) {
+  hamburger.addEventListener('click', toggleMenu);
+  hamburger.addEventListener('keydown', (e)=>{ if (e.key === 'Enter' || e.key === ' ') toggleMenu(); });
+}
+if (navLinks) navLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+// ===== Fade-in observer =====
+const fadeInElements = document.querySelectorAll('.fade-in');
+const io = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      obs.unobserve(entry.target);
+    }
+  });
+},{ threshold:0.12 });
+
+fadeInElements.forEach(el => io.observe(el));
