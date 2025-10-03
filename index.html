@@ -15,13 +15,13 @@
     <header class="main-header sticky-header">
         <div class="container">
             <h1>Optica Eye</h1>
-            <div class="hamburger-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+            <button class="hamburger-menu" type="button" aria-label="Deschide meniul" aria-expanded="false" aria-controls="main-navigation">
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+            </button>
             <nav>
-                <ul>
+                <ul id="main-navigation">
                     <li><a href="#despre">Despre noi</a></li>
                     <li><a href="#servicii">Servicii</a></li>
                     <li><a href="#programare">Programează-te</a></li>
@@ -32,7 +32,7 @@
     </header>
 
     <!-- Carusel -->
-    <section id="carusel" class="section">
+    <section id="carusel" class="section fade-in">
         <div class="carousel-wrapper">
             <div class="carousel">
                 <div class="carousel-item">
@@ -51,15 +51,15 @@
     </section>
 
     <!-- Despre Noi -->
-    <section id="despre" class="about-section">
+    <section id="despre" class="about-section fade-in">
         <div class="container">
             <h2>Despre Optica Eye</h2>
-            <p style="line-height: 1.5;">La Optica Eye, ne dedicăm sănătății ochilor tăi. Oferim servicii complete de optică medicală, inclusiv consultații oftalmologice, prescriere de ochelari și lentile de contact, precum și o gamă variată de rame moderne și lentile de cea mai bună calitate. Echipa noastră de specialiști este pregătită să îți ofere soluții personalizate, utilizând cele mai recente tehnologii și echipamente. Ne angajăm să asigurăm o experiență plăcută și să răspundem tuturor întrebărilor tale legate de sănătatea oculară. Vino să descoperi un serviciu de calitate superioară, într-un mediu prietenos și profesionist. Contactează-ne pentru o programare!</p>
+            <p class="lead-paragraph">La Optica Eye, ne dedicăm sănătății ochilor tăi. Oferim servicii complete de optică medicală, inclusiv consultații oftalmologice, prescriere de ochelari și lentile de contact, precum și o gamă variată de rame moderne și lentile de cea mai bună calitate. Echipa noastră de specialiști este pregătită să îți ofere soluții personalizate, utilizând cele mai recente tehnologii și echipamente. Ne angajăm să asigurăm o experiență plăcută și să răspundem tuturor întrebărilor tale legate de sănătatea oculară. Vino să descoperi un serviciu de calitate superioară, într-un mediu prietenos și profesionist. Contactează-ne pentru o programare!</p>
         </div>
     </section>
 
     <!-- Servicii -->
-    <section id="servicii" class="services-section">
+    <section id="servicii" class="services-section fade-in">
         <div class="container">
             <h2>Serviciile Noastre</h2>
             <p>Oferim o gamă largă de tratamente pentru tine și familia ta.</p>
@@ -85,7 +85,7 @@
     </section>
 
     <!-- Formular Programare -->
-    <section id="programare" class="appointment-section">
+    <section id="programare" class="appointment-section fade-in">
     <div class="container">
         <div class="appointment-content">
             <!-- Textul din stânga -->
@@ -132,7 +132,7 @@
 
 
     <!-- Locații -->
-    <section id="locatii" class="locations-section">
+    <section id="locatii" class="locations-section fade-in">
         <div class="container">
             <h2>Locații</h2>
             <div class="locations-grid">
