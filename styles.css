@@ -7,6 +7,12 @@ body {
     color: #1e676e;
 }
 
+.lead-paragraph {
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
 .main-header {
     background-color: rgba(30, 103, 110, 0.8); /* Fundal semi-transparent */
     color: #fff;
@@ -19,7 +25,8 @@ body {
     transition: background-color 0.3s ease-in-out;
 }
 
-.main-header.sticky {
+.main-header.sticky,
+.main-header.scrolled {
     background-color: #1e676e;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Efect vizual */
 }
@@ -39,6 +46,7 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
+    margin: 0;
 }
 
 nav ul li {
@@ -48,6 +56,11 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
+}
+
+nav ul li a:focus,
+nav ul li a:hover {
+    text-decoration: underline;
 }
 
 /* Carusel */
@@ -228,6 +241,26 @@ nav ul li a {
     background-color: #0055a5;
 }
 
+/* Efect fade-in pentru secțiuni */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fade-in {
+        transition: none;
+        transform: none;
+        opacity: 1;
+    }
+}
+
 /* Secțiunea locații */
 .locations-section {
     background-color: #e6f7f8;
@@ -268,70 +301,6 @@ nav ul li a {
 }
 
 
-@media (max-width: 768px) {
-    .carousel-item img {
-        max-height: 300px; /* Imagine redimensionată pentru mobil */
-    }
-
-    .carousel-btn {
-        width: 40px; /* Butoane mai mici pe mobil */
-        height: 40px;
-        font-size: 14px;
-    }
-
-    .carousel-btn.prev {
-        left: 10px; /* Ajustează pentru spațiu redus */
-    }
-
-    .carousel-btn.next {
-        right: 10px;
-    }
-}
-
-@media (max-width: 768px) {
-    /* Wrapper carusel */
-    .carousel-wrapper {
-        max-width: 95%; /* Mărim marginile pe mobil */
-    }
-
-    /* Imaginile din carusel */
-    .carousel-item img {
-        max-height: 300px; /* Reducem înălțimea pe mobil */
-    }
-
-    /* Butoanele de navigare */
-    .carousel-btn {
-        display: none;
-    }
-
-    
-}
-
-@media (max-width: 480px) {
-    /* Imagini pentru ecrane foarte mici */
-    .carousel-item img {
-        max-height: 250px;
-    }
-    
-}
-
-/* Responsivitate pentru mobil */
-@media (max-width: 768px) {
-    .appointment-content {
-        flex-direction: column; /* Elemente verticale */
-        gap: 20px; /* Distanța dintre text și formular */
-    }
-
-    .appointment-text {
-        text-align: center;
-    }
-
-    .appointment-form {
-        max-width: 100%; /* Formularul ocupă întreaga lățime */
-    }
-}
-
-
 /* Hamburger Menu */
 .hamburger-menu {
     display: none; /* Ascuns pe ecrane mari */
@@ -342,6 +311,14 @@ nav ul li a {
     height: 25px;
     cursor: pointer;
     z-index: 1001; /* Mai sus decât sticky header */
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
+.hamburger-menu:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
 }
 
 .hamburger-menu .bar {
@@ -365,13 +342,32 @@ nav ul li a {
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-}
-
 @media (max-width: 768px) {
+    .carousel-wrapper {
+        max-width: 95%;
+    }
+
+    .carousel-item img {
+        max-height: 300px;
+    }
+
+    .carousel-btn {
+        display: none;
+    }
+
+    .appointment-content {
+        flex-direction: column; /* Elemente verticale */
+        gap: 20px; /* Distanța dintre text și formular */
+    }
+
+    .appointment-text {
+        text-align: center;
+    }
+
+    .appointment-form {
+        max-width: 100%; /* Formularul ocupă întreaga lățime */
+    }
+
     .hamburger-menu {
         display: block; /* Apare pe ecrane mici */
     }
@@ -400,5 +396,11 @@ nav ul {
         color: #fff;
         text-decoration: none;
         font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-item img {
+        max-height: 250px;
     }
 }
